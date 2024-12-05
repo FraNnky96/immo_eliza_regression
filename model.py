@@ -27,7 +27,7 @@ class DataFormat:
         Reshape the dataset to have X as features, y as target(price)
         """
         # X = features (drop 'Price')
-        self.X = self.df.drop(["Price",], axis=1)
+        self.X = self.df.drop(["Price"], axis=1)
         # y = target (Price)
         self.y = self.df['Price'].values
         
@@ -74,7 +74,7 @@ class DataFormat:
 
         # Set hyperparameter grid for GridSearchCV
         param_grid = {
-            'iterations': [1000],
+            'iterations': [500],
             'depth': [6],
             'learning_rate': [0.1],
             'early_stopping_rounds': [50]

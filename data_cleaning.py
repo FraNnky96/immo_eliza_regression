@@ -34,6 +34,8 @@ class DataCleaner:
         # dropping some rows
 
         self.df = self.df[self.df['Property type'] != "Apartment_Block"]
+        outliers = self.df.loc[self.df['Price'] > 7500000]
+        self.df = self.df.drop(outliers.index)
         
 
 
