@@ -17,31 +17,23 @@ class DataCleaner:
 
         # Filling missing values for specific columns with median
         self.df["Facades"] = self.df["Facades"].fillna(self.df["Facades"].mode()[0])
-        self.df["Surface of the plot"] = self.df["Surface of the plot"].fillna(self.df["Surface of the plot"].median())
+        self.df["Surface of the plot"] = self.df["Surface of the plot"].fillna(self.df["Surface of the plot"].mean())
 
-        # joining flemish name with french name in locality
-        self.df.loc[self.df["Locality"] == "Brugge", "Locality"] = "Bruges"
-        self.df.loc[self.df["Locality"] == "Anvers", "Locality"] = "Antwerp"
-        self.df.loc[self.df["Locality"] == "Courtrai", "Locality"] = "Kortrijk"
-        self.df.loc[self.df["Locality"] == "Gand", "Locality"] = "Gent"
-        self.df.loc[self.df["Locality"] == "Bruxelles", "Locality"] = "Brussels"
-        self.df.loc[self.df["Locality"] == "Malines", "Locality"] = "Mechelen"
-        self.df.loc[self.df["Locality"] == "Louvain", "Locality"] = "Leuven"
-        self.df.loc[self.df["Locality"] == "Ostende", "Locality"] = "Oostend"
-        self.df.loc[self.df["Locality"] == "Saint-Nicolas", "Locality"] = "Sint-Niklaas"
-        self.df.loc[self.df["Locality"] == "Hal-Vilvorde", "Locality"] = "Halle-Vilvoorde"
-        self.df.loc[self.df["Locality"] == "Audenarde", "Locality"] = "Oudenaarde"
-        self.df.loc[self.df["Locality"] == "Dendermonde", "Locality"] = "Termonde"
-        self.df.loc[self.df["Locality"] == "Alost", "Locality"] = "Aalst"
-        self.df.loc[self.df["Locality"] == "Roulers", "Locality"] = "Roeselare"
-        self.df.loc[self.df["Locality"] == "Ypres", "Locality"] = "Ieper"
-        self.df.loc[self.df["Locality"] == "Tongres", "Locality"] = "Tongeren"
-        self.df.loc[self.df["Locality"] == "Dixmude", "Locality"] = "Diksmuide"
-        self.df.loc[self.df["Locality"] == "Veurne", "Locality"] = "Furnes"
+        # Mapping dictionary for locality replacement
+        locality_mapping = {
+            "Brugge": "Bruges", "Anvers": "Antwerp", "Courtrai": "Kortrijk", "Gand": "Gent",
+            "Bruxelles": "Brussels", "Malines": "Mechelen", "Louvain": "Leuven", "Ostende": "Oostend",
+            "Saint-Nicolas": "Sint-Niklaas", "Hal-Vilvorde": "Halle-Vilvoorde", "Audenarde": "Oudenaarde",
+            "Dendermonde": "Termonde", "Alost": "Aalst", "Roulers": "Roeselare", "Ypres": "Ieper",
+            "Tongres": "Tongeren", "Dixmude": "Diksmuide", "Veurne": "Furnes"
+        }
+        
+        # Replace locality names using the mapping
+        self.df["Locality"] = self.df["Locality"].replace(locality_mapping)
 
         # dropping some rows
 
-        self.df = self.df[self.df['Property type'] != "Apartement_Block"]
+        self.df = self.df[self.df['Property type'] != "Apartment_Block"]
         
 
 

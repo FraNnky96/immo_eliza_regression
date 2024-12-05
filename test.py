@@ -1,8 +1,14 @@
 import pandas as pd
+from pandas_profiling import ProfileReport
 
-df = pd.read_csv('data\clean_data.csv')
+# Load the dataset
+df = pd.read_csv('clean_data.csv')
 
-for column in df.columns:
-    print(f"Unique values in column '{column}':")
-    print(df[column].unique())
-    print()
+# Generate the profiling report
+profile = ProfileReport(df, title="Dataset Profile Report", explorative=True)
+
+# Save the report as an HTML file
+profile.to_file("data_profile_report.html")
+
+# (Optional) Display in Jupyter Notebook
+profile.to_notebook_iframe()
