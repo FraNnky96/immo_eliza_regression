@@ -58,16 +58,16 @@
 ### Presentation of the final dataset .
 
         The final dataset is shaped with 12394 rows and 20 columns.
-
         I didn' t merge any dataset to the final dataset nor scrape spend too much time understanding logic of ML.
-
         I scaled the data with RobustScaler() .
-
         Made some clean some outliers , extras value, and default in the locality column
-
         Made some cross validation in the model
 
 
 ### Summary :
 
-This model was built using CatBoostRegressor with a GridSearchCV to tune the hyperparameters. The evaluation metrics show that the model performs well on both training and test datasets. The model’s R² values indicate that it can explain a significant portion of the variance in the target variable, and its error metrics (MAE, RMSE, MAPE, and sMAPE) suggest that the model is making reasonable predictions. However, there is still room for improvement, particularly in reducing the error margins on the test set and on the dataset itself.
+This model was built using CatBoostRegressor with a GridSearchCV to tune the hyperparameters. 
+The evaluation metrics show that the model performs well on both training and test datasets but needs to be verified. 
+The model’s R² values indicate that it can explain a significant portion of the variance in the target variable, and its error metrics (MAE, RMSE, MAPE, and sMAPE) suggest that the model is making reasonable predictions.
+However, there is still lots of room for improvement. 
+Particularly in reducing the error margins on the test/train set and on the data of the dataset itself.
