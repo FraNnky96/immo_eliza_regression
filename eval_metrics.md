@@ -70,4 +70,4 @@
 
 ### Summary :
 
-        This model was built using CatBoostRegressor with a GridSearchCV to tune the hyperparameters. The evaluation metrics show that the model performs well on both training and test datasets. The model’s R² values indicate that it can explain a significant portion of the variance in the target variable, and its error metrics (MAE, RMSE, MAPE, and sMAPE) suggest that the model is making reasonable predictions. However, there is still room for improvement, particularly in reducing the error margins on the test set and on the dataset itself.
+This model was built using CatBoostRegressor with a GridSearchCV to tune the hyperparameters. The evaluation metrics show that the model performs well on both training and test datasets. The model’s R² values indicate that it can explain a significant portion of the variance in the target variable, and its error metrics (MAE, RMSE, MAPE, and sMAPE) suggest that the model is making reasonable predictions. However, there is still room for improvement, particularly in reducing the error margins on the test set and on the dataset itself.
