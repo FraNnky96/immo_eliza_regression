@@ -35,12 +35,12 @@ class DataFormat:
         Reshape the dataset to have X as features, y as target(price)
         """
         # X = features (drop 'Price')
-        self.X = self.df.drop(["Price"], axis=1)
+        self.X = self.df.drop(["Price","Property","Province"], axis=1)
         self.y = self.df["Price"].values
 
         # Ensure categorical features are treated correctly (as strings)
         self.X["Building condition"] = self.X["Building condition"].astype(str)
-        self.X["Property"] = self.X["Property"].astype(str)
+        
 
         # Print shapes of X and y to ensure correct reshaping
         print("Shape of y:", self.y.shape)
@@ -105,8 +105,6 @@ class DataFormat:
             "Locality",
             "Property type",
             "Building condition",
-            "Province",
-            "Property",
             "Region",
         ]
 

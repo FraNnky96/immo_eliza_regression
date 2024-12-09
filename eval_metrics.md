@@ -35,12 +35,12 @@
 
 | MAE test | MAE train | RMSE test | RMSE train | R2 test | R2 train | MAPE test | MAPE train | sMAPE test | sMAPE train |
 |----------|-----------|-----------|------------|---------|----------|-----------|------------|------------|-------------|
-| 111385.46| 87577.89  | 214893.07 | 152649.60  | 76.53%  | 90.86 %  |  22.90 %  |  18.75 %   |   21.09 %  |   17.65 %   |
+| 107714.35| 85513.87  | 208588.75 | 149070.27  | 77.89%  | 91.29 %  |  22.02 %  |  18.49 %   |   20.35 %  |   17.34 %   |
 
 
 ### List of features :
 
-        For the features i used the basic ones from the dataset (Locality,Zip code,Property type,Bedrooms,Living area,Surface of the plot,Facades,Building condition,Fireplace,Equipped kitchen,Garden,Garden surface,Terrace,Terrace surface,Furnished,Swimming pool,Province,Property,Region)
+        For the features i used the basic ones from the dataset (Locality,Zip code,Property type,Bedrooms,Living area,Surface of the plot,Facades,Building condition,Fireplace,Equipped kitchen,Garden,Garden surface,Terrace,Terrace surface,Furnished,Swimming pool,Region)
 
         I struggled a lot with understanding how machine learning is working and spend too much time on it.
 
