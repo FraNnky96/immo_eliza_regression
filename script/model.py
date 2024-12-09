@@ -12,6 +12,7 @@ from sklearn.preprocessing import RobustScaler
 from sklearn.model_selection import GridSearchCV
 import matplotlib.pyplot as plt
 import shap
+import joblib
 
 
 class DataFormat:
@@ -57,21 +58,22 @@ class DataFormat:
 
     def scale_data(self):
         """
-        Scale the numericals features with RobustScaler
+        Scale the numerical features with RobustScaler and save the scaler.
         """
         # Select only numeric columns for scaling
         numeric_columns = self.X_train.select_dtypes(include=[np.number]).columns
 
         # Initialize the RobustScaler
-        scaler = RobustScaler()
+        self.scaler = RobustScaler()
 
         # Fit and transform the training data, and transform the test data
-        self.X_train[numeric_columns] = scaler.fit_transform(
-            self.X_train[numeric_columns]
-        )
-        self.X_test[numeric_columns] = scaler.transform(self.X_test[numeric_columns])
+        self.X_train[numeric_columns] = self.scaler.fit_transform(self.X_train[numeric_columns])
+        self.X_test[numeric_columns] = self.scaler.transform(self.X_test[numeric_columns])
 
-        print("Data scaled successfully.")
+        # Save the scaler
+        joblib.dump(self.scaler, 'scaler.pkl')  # Save the scaler to a file
+        print("Data scaled successfully and scaler saved.")
+
 
     def get_train_data(self):
         """
@@ -273,6 +275,7 @@ class DataFormat:
 
         # Feature Importance
         self.plot_feature_importance(self.regressor, self.X.columns)
+
 
     def save_model(self):
         """
