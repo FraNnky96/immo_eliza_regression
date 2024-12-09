@@ -50,18 +50,19 @@
 
         Split (train/test) = 80 / 20 % 
         Random state = 0
+        Kfold = 5
 
 ### Efficiency.
 
         Taking a bit more than 11 minutes to run completely from main.py
 
-### Presentation of the final dataset .
+### Presentation of the final dataset.
 
         The final dataset is shaped with 12394 rows and 20 columns.
-        I didn' t merge any dataset to the final dataset nor scrape spend too much time understanding logic of ML.
-        I scaled the data with RobustScaler() .
-        Made some clean some outliers , extras value, and default in the locality column
-        Made some cross validation in the model
+        I didn' t merge any dataset to the final dataset nor scrape, spend too much time understanding logic of ML.
+        I scaled the data with RobustScaler().
+        Made some clean on outliers , extras value, and default in the locality column.
+        Made some cross validation in the model.
 
 
 ### Summary :
